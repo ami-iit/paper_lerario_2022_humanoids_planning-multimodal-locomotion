@@ -11,12 +11,19 @@ class Problem:
         self.N = knots
         self.time_horizon = time_horizon
         self.joints_lb, self.joints_ub = self.model.get_joints_limits()
+        self.zero_initial_thrust = False
 
     def set_initial_com(self, value: np.ndarray):
         self.initial_com = value
 
     def set_final_com(self, value: np.ndarray):
         self.final_com = value
+
+    def set_zero_intial_thrust(self):
+        self.zero_initial_thrust = True
+
+    def set_middle_com_constraint(self, value: float):
+        self.com_mid_constraint = value
 
     def create(self, initial_condition=None):
 
@@ -54,9 +61,9 @@ class Problem:
         [opti.set_initial(U[:, k], np.zeros(4)) for k in range(self.N + 1)]
 
         # initial thrust constraints
-        opti.subject_to(opti.bounded(-1e-3, T[:, 0], 1e-3))
-        opti.subject_to(opti.bounded(-1e-3, dT[:, 0], 1e-3))
-        # self.add_cost(cs.sumsqr((SO3(Q[:, 0]) - SO3.Identity()).vec))
+        if self.zero_initial_thrust:
+            opti.subject_to(opti.bounded(-1e-3, T[:, 0], 1e-3))
+            opti.subject_to(opti.bounded(-1e-3, dT[:, 0], 1e-3))
 
         # final COM constraint
         opti.subject_to(R[:, -1] == self.final_com)
@@ -217,7 +224,6 @@ class Problem:
         import datetime
         import glob
         import os
-
         import imageio
 
         now = datetime.datetime.now()
@@ -229,7 +235,7 @@ class Problem:
         picture_dir = f"runs/{month}-{day}-{hour}-{minute}"
         os.makedirs(f"{picture_dir}/pictures")
 
-        input("Ashpett")
+        input("Press to go on with frames.")
         for k in range(self.N + 1):
             pos = sol.value(P)[:, k]
             quat = sol.value(Q)[:, k]
@@ -422,10 +428,12 @@ if __name__ == "__main__":
     )
 
     robot = Robot()
-    problem = Problem(robot, 10)
+    problem = Problem(robot, 50)
 
     problem.set_initial_com(np.array([0, 0, 0.57]))
-    problem.set_final_com(np.array([-0.1, 0, 0.7]))
+    problem.set_final_com(np.array([-0.1, 0, 0.57]))
+    problem.set_zero_intial_thrust()
+    problem.set_middle_com_constraint(0.7)
 
     problem.initial_force_w = 1e1
     problem.intitial_joints_w = 1e6
