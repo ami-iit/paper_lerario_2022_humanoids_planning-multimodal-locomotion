@@ -26,9 +26,9 @@ The net-force transitions smoothly from contact forces to jet thrusts. The horiz
 
 **Weights**
 
-| \ddot{r} | \dot{r} | \dot{L} | L   | \dot{s} | s - \bar{s} | \dot{f} | f   | \dot{T} | T   | U    |
-| -------- | ------- | ------- | --- | ------- | ----------- | ------- | --- | ------- | --- | ---- |
-| 1e5      | 1e7     | 1e4     | 1e4 | 1e5     | 1e6         | 1e0     | 5e1 | 0       | 0   | 1e-1 |
+|Cost Term| $\ddot{r}$ | $\dot{r}$ | $\dot{h_{\omega}}$ | $h_{\omega}$   | $\dot{s}$ | $s - \bar{s}$ | $\dot{f}$ | $f$   | $\dot{T}$ | $T$   | $U$   |
+|---------| -------- | ------- | ------- | --- | ------- | ----------- | ------- | --- | ------- | --- | ---- |
+|Weight   | 1e5      | 1e7     | 1e4     | 1e4 | 1e5     | 1e6         | 1e0     | 5e1 | 0       | 0   | 1e-1 |
 
 ![03-15-09-54](https://user-images.githubusercontent.com/29798643/168566165-86c89196-38df-4dc1-852c-5a66bbc32901.gif)
 
@@ -38,9 +38,9 @@ We test our approach is a vertical take-off and landing that shall be generated 
 
 **Weights**
 
-| \ddot{r} | \dot{r} | \dot{L} | L   | \dot{s} | s - \bar{s} | \dot{f} | f   | \dot{T} | T   | U    |
-| -------- | ------- | ------- | --- | ------- | ----------- | ------- | --- | ------- | --- | ---- |
-| 1e5      | 1e7     | 1e4     | 1e4 | 1e5     | 1e6         | 1e0     | 5e1 | 0       | 0   | 1e-1 |
+|Cost Term| $\ddot{r}$ | $\dot{r}$ | $\dot{h_{\omega}}$ | $h_{\omega}$   | $\dot{s}$ | $s - \bar{s}$ | $\dot{f}$ | $f$   | $\dot{T}$ | $T$   | $U$   |
+|---------| -------- | ------- | ------- | --- | ------- | ----------- | ------- | --- | ------- | --- | ---- |
+|Weight| 1e5      | 1e7     | 1e4     | 1e4 | 1e5     | 1e6         | 1e0     | 5e1 | 0       | 0   | 1e-1 |
 
 ![05-16-12-25](https://user-images.githubusercontent.com/29798643/168592535-43ec03f3-d1bc-4e21-8198-a42d5a6fcb56.gif)
 
@@ -50,9 +50,9 @@ We test our approach in a context in which two different locomotion patterns are
 
 **Weights**
 
-| \ddot{r} | \dot{r} | \dot{L} | L   | \dot{s} | s - \bar{s} | \dot{f} | f   | \dot{T} | T   | U   |
-| -------- | ------- | ------- | --- | ------- | ----------- | ------- | --- | ------- | --- | --- |
-| 1e5      | 1e7     | 1e4     | 1e4 | 1e5     | 1e7         | 0       | 1e0 | 0       | 2e3 | 0   |
+|Cost Term| $\ddot{r}$ | $\dot{r}$ | $\dot{h_{\omega}}$ | $h_{\omega}$   | $\dot{s}$ | $s - \bar{s}$ | $\dot{f}$ | $f$   | $\dot{T}$ | $T$   | $U$   |
+|---------| -------- | ------- | ------- | --- | ------- | ----------- | ------- | --- | ------- | --- | --- |
+|Weight| 1e5      | 1e7     | 1e4     | 1e4 | 1e5     | 1e7         | 0       | 1e0 | 0       | 2e3 | 0   |
 
 ![04-28-18-32](https://user-images.githubusercontent.com/29798643/168568487-d371eb08-1fd9-4af3-b44b-74f56b4658e3.gif)
 
@@ -62,14 +62,14 @@ To validate the approach for generating multimodal locomotion, the fourth scenar
 
 **Weights**
 
-| \ddot{r} | \dot{r} | \dot{L} | L   | \dot{s} | s - \bar{s} | \dot{f} | f   | \dot{T} | T   | U   |
-| -------- | ------- | ------- | --- | ------- | ----------- | ------- | --- | ------- | --- | --- |
-| 1e0      | 1e0     | 1e0     | 1e0 | 1e4     | 2e1         | 1e-1    | 1e0 | 0       | 0   | 0   |
+|Cost Term| $\ddot{r}$ | $\dot{r}$ | $\dot{h_{\omega}}$ | $h_{\omega}$   | $\dot{s}$ | $s - \bar{s}$ | $\dot{f}$ | $f$   | $\dot{T}$ | $T$   | $U$   |
+|---------| -------- | ------- | ------- | --- | ------- | ----------- | ------- | --- | ------- | --- | --- |
+|Weight| 1e0      | 1e0     | 1e0     | 1e0 | 1e4     | 2e1         | 1e-1    | 1e0 | 0       | 0   | 0   |
 
 ![05-16-11-07](https://user-images.githubusercontent.com/29798643/168568591-9582e8ca-1399-44ac-8e1a-e31425b4af63.gif)
 
 ## Code
 
-⚠️ The code is working in progress!
+⚠️ The code is work in progress!
 
 The skeleton of the varius cases is in the [runs folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/runs)
