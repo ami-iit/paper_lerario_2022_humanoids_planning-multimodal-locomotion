@@ -70,6 +70,8 @@ To validate the approach for generating multimodal locomotion, the fourth scenar
 
 ## Code
 
-⚠️ The code is work in progress!
+⚠️ **The code is work in progress!**
 
-The skeleton of the varius cases is in the [runs folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/runs)
+The skeleton of the varius cases is in the [runs folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/runs).
+  
+To run the playback of the data, run the scripts in the [datasets folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/datasets).
