@@ -10,6 +10,9 @@ import numpy as np
 from icecream import ic
 from liecasadi import SE3, SO3, SO3Tangent
 
+from planner import Contact, CustomCallback, Robot, Visualizer
+from planner.integrator import generic_integrator, robot_integrator
+
 
 class Problem:
     def __init__(self, model: Robot, steps: int, time_horizon: float = None) -> None:
