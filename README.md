@@ -67,3 +67,9 @@ To validate the approach for generating multimodal locomotion, the fourth scenar
 | 1e0      | 1e0     | 1e0     | 1e0 | 1e4     | 2e1         | 1e-1    | 1e0 | 0       | 0   | 0   |
 
 ![05-16-11-07](https://user-images.githubusercontent.com/29798643/168568591-9582e8ca-1399-44ac-8e1a-e31425b4af63.gif)
+
+## Code
+
+⚠️ The code is working in progress!
+
+The skeleton of the varius cases is in the [runs folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/runs)
