@@ -62,9 +62,9 @@ To validate the approach for generating multimodal locomotion, the fourth scenar
 
 **Weights**
 
-| Cost Term | $\ddot{r}$ | $\dot{r}$ | $\dot{h_{\omega}}$ | $h_{\omega}$ | $\dot{s}$ | $s - \bar{s}$ | $\dot{f}$ | $f$ | $\dot{T}$ | $T$ | $U$ |
-| --------- | ---------- | --------- | ------------------ | ------------ | --------- | ------------- | --------- | --- | --------- | --- | --- |
-| Weight    | 1e0        | 1e0       | 1e0                | 1e0          | 1e4       | 2e1           | 1e-1      | 1e0 | 0         | 0   | 0   |
+| Cost Term | $\ddot{r}$ | $\dot{r}$ | $\dot{h_{\omega}}$ | $h_{\omega}$ | $\dot{s}$ | $s - \bar{s}$ | $\dot{f}$ | $f$ | 
+| --------- | ---------- | --------- | ------------------ | ------------ | --------- | ------------- | --------- | --- | 
+| Weight    | 1e0        | 1e0       | 1e0                | 1e0          | 1e4       | 2e1           | 1e-1      | 1e0 | 
 
 ![05-16-11-07](https://user-images.githubusercontent.com/29798643/168568591-9582e8ca-1399-44ac-8e1a-e31425b4af63.gif)
 
