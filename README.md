@@ -46,7 +46,7 @@ We test our approach is a vertical take-off and landing that shall be generated 
 
 ### Walking to flight transition
 
-We test our approach in a context in which two different locomotion patterns are mixed. The robot starts at an initial CoM position at 0.57 m and transitions from walking to flying locomotion going 0.9 m forward and reaching 0.7 m. The number of knots of the optimisation horizon is equal to 100. . The robot moves a few steps forward while increasing the thrust. Eventually, the contacts break and the robot detaches from the ground. Note that the contact sequence in the legged locomotion phase is not predefined and emerges directly from the formulation.
+We test our approach in a context in which two different locomotion patterns are mixed. The robot starts at an initial CoM position at 0.57 m and transitions from walking to flying locomotion going 0.9 m forward and reaching 0.7 m. The number of knots of the optimisation horizon is equal to 100. The robot moves a few steps forward while increasing the thrust. Eventually, the contacts break and the robot detaches from the ground. Note that the contact sequence in the legged locomotion phase is not predefined and emerges directly from the formulation.
 
 **Weights**
 
@@ -58,7 +58,7 @@ We test our approach in a context in which two different locomotion patterns are
 
 ### Jumping
 
-To validate the approach for generating multimodal locomotion, the fourth scenario consists of the robot taking a jump. The number of optimisation knots is set to 60. The initial and the final CoM position height equal 0.57 m. We add an additional constraint on the CoM height at the middle-knot x[N/2] > 0.75m. The CoM height decreases and then accelerates vertically until the contacts break. After the flight phase, the robot lands and returns to the initial configuration.
+To validate the approach for generating multimodal locomotion, the fourth scenario consists of the robot taking a jump. The number of optimisation knots is set to 60. The initial and the final CoM position height equal 0.57 m. We add an additional constraint on the CoM height at the middle-knot $x[N/2] > 0.75m$. The CoM height decreases and then accelerates vertically until the contacts break. After the flight phase, the robot lands and returns to the initial configuration.
 
 **Weights**
 
