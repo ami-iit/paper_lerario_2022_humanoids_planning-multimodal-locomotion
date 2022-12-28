@@ -4,7 +4,7 @@ import numpy as np
 
 if __name__ == "__main__":
 
-    with open("datasets/pickles/04-28-12-32.pickle", "rb") as f:
+    with open("datasets/pickles/04-28-18-32.pickle", "rb") as f:
         dataset = pickle.load(f)
 
     time = dataset["Time"]
@@ -29,14 +29,15 @@ if __name__ == "__main__":
         framealpha=0.5,
     )
 
-    plt.axvspan(8.76, 9, alpha=0.2, color="red")
+    plt.axvspan(5.28, 5.5, alpha=0.2, color="red")
 
-    plt.text(5.5, 100, "$u_{max}$", va="center", ha="center", backgroundcolor="w")
-    plt.text(5.5, 0, "$u_{min}$", va="center", ha="center", backgroundcolor="w")
+    plt.text(4.5, 100, "$u_{max}$", va="center", ha="center", backgroundcolor="w")
+    plt.text(4.5, 0, "$u_{min}$", va="center", ha="center", backgroundcolor="w")
     plt.grid("True")
     plt.xlabel("Time [s]")
-    plt.ylabel("Throttle [%]")
+    plt.ylabel("Throttle [\%]")
     plt.savefig("throttle.pdf")
+
     fig = plt.figure()
 
     plt.title(r"Thrust")
@@ -53,13 +54,13 @@ if __name__ == "__main__":
         color="r",
     )
 
-    plt.axvspan(8.76, 9, alpha=0.2, color="red")
+    plt.axvspan(5.28, 5.5, alpha=0.2, color="red")
 
     t = plt.text(
-        5.5, 160, "$T^{max}_{1,2}$", va="center", ha="center", backgroundcolor="w"
+        4.5, 160, "$T^{max}_{1,2}$", va="center", ha="center", backgroundcolor="w"
     )
-    plt.text(5.5, 220, "$T^{max}_{3,4}$", va="center", ha="center", backgroundcolor="w")
-    plt.text(5.5, 0, "$T^{min}$", va="center", ha="center", backgroundcolor="w")
+    plt.text(4.5, 220, "$T^{max}_{3,4}$", va="center", ha="center", backgroundcolor="w")
+    plt.text(4.5, 0, "$T^{min}$", va="center", ha="center", backgroundcolor="w")
     plt.plot(time, np.ones(len(time)) * 0, "--", linewidth=2, color="r")
     plt.legend(
         [b, c, d, e],
@@ -69,12 +70,12 @@ if __name__ == "__main__":
         framealpha=0.5,
     )
     plt.grid("True")
-    plt.xlabel("Time")
+    plt.xlabel("Time [s]")
     plt.ylabel("Thrust [N]")
 
     plt.savefig("thrust.pdf")
-
     plt.figure()
+
     plt.title("Contact forces - vertical component")
 
     f1 = np.ones([1, 4]) @ dataset["contact-forces"][[2, 5, 8, 11], :]
@@ -82,7 +83,7 @@ if __name__ == "__main__":
     plt.plot(time, f1.squeeze(), label="left foot")
     plt.plot(time, f2.squeeze(), label="right foot")
 
-    plt.axvspan(8.76, 9, alpha=0.2, color="red")
+    plt.axvspan(5.28, 5.5, alpha=0.2, color="red")
     plt.legend(loc="best", fancybox=True, framealpha=0.5)
     plt.xlabel("Time [s]")
     plt.ylabel("Force [N]")
