@@ -1,8 +1,10 @@
 import casadi as cs
 import numpy as np
 from liecasadi import SE3, SO3, SO3Tangent
-from robot import Robot
-from visualization import Visualizer
+from multi_loco_planner.robot import Robot
+from multi_loco_planner.visualization import Visualizer
+
+# from multi_loco_planner.replay import Replay
 
 
 class Problem:

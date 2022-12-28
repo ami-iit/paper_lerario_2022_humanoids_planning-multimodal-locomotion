@@ -1,6 +1,11 @@
 import idyntree.swig as idyntree
-from robot import Robot
+from multi_loco_planner.robot import Robot
 import numpy as np
+
+
+class Visualizer2:
+    def __init__(self) -> None:
+        pass
 
 
 class Visualizer:
