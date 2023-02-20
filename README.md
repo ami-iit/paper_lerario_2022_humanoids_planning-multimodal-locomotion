@@ -143,11 +143,13 @@ export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:${IRONCUB_SOFTWARE_SOURCE_DIR}/mod
 export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:${IRONCUB_SOFTWARE_SOURCE_DIR}/models/iRonCub-Mk1_1/iRonCub/robots
 ```
 
-Note that, to replicate the results, you need to install the hsl solvers (here we use `ma97`) that can be downloaded but not redistributed. Please check [here](https://www.hsl.rl.ac.uk/ipopt/). If you want to speed up the simulation you may install `IPOPT 3.13.4` with `CoinBrew` +  `HSL solver` as explained [here](https://gist.github.com/GiulioRomualdi/22fddb949e7b09bb53ca2ff72cbf8cb6).
+⚠️ Note that, to replicate the results, you need to install the hsl solvers (here we use `ma97`) that can be downloaded but not redistributed. Please check [here](https://www.hsl.rl.ac.uk/ipopt/). If you want to speed up the simulation you may install `IPOPT 3.13.4` with `CoinBrew` +  `HSL solver` as explained [here](https://gist.github.com/GiulioRomualdi/22fddb949e7b09bb53ca2ff72cbf8cb6)!
 
-Then, in this folder, run:
+Clone this repository and install the package:
 
 ```bash
+git clone git@github.com:ami-iit/paper_lerario_2022_humanoids_planning-multimodal-locomotion.git
+cd paper_lerario_2022_humanoids_planning-multimodal-locomotion
 pip install .
 ```
 
