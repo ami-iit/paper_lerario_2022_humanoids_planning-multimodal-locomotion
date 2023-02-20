@@ -151,6 +151,6 @@ Then, in this folder, run:
 pip install .
 ```
 
-The skeleton of the varius cases is in the [runs folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/runs).
+To run the playback of the data, run the scripts in the [datasets folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/datasets). It will show the visualizations of the trajectories and plots.
 
-To run the playback of the data, run the scripts in the [datasets folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/datasets).
+To run the optimizations, run the scripts in the [runs folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/runs).

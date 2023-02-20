@@ -1,10 +1,13 @@
 import pickle
+import time as tm
+
 import matplotlib.pyplot as plt
 import numpy as np
+from liecasadi import SE3
 
+from multi_loco_planner import Robot, Visualizer
 
 if __name__ == "__main__":
-
     with open("datasets/pickles/03-15-09-54.pickle", "rb") as f:
         # with open("pictures/03-14-15-57.pickle", "rb") as f:
         dataset = pickle.load(f)
@@ -92,5 +95,18 @@ if __name__ == "__main__":
     plt.grid("True")
 
     plt.savefig("contact_forces.pdf")
+
+    viz = Visualizer(robot=Robot())
+
+    for k in range(dataset["knots"] + 1):
+        pos = dataset["position"][:, k]
+        quat = dataset["orientation"][:, k]
+        H = np.array(SE3(pos, quat).transform())
+        s = dataset["joint_pos"][:, k]
+        t = dataset["thrust"][:, k]
+        f = dataset["contact-forces"][:, k]
+        viz.viz.run()
+        viz.update(H, s, t, f)
+        tm.sleep(dataset["Time"] / dataset["knots"])
 
     plt.show()
