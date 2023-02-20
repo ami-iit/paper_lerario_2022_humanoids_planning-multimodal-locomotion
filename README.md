@@ -118,7 +118,38 @@ EXIT: Solved To Acceptable Level.
 
 ## Code
 
-⚠️ **The code is work in progress!**
+Git clone the iRonCub software repository:
+
+```bash
+git clone git@github.com:ami-iit/ironcub_software.git
+```
+
+Create and enviroment and install the dependencies:
+
+```bash
+mamba create -n <conda-environment-name>
+mamba activate  <conda-environment-name>
+mamba install -c conda-forge compilers cmake pkg-config make ninja
+mamba install -c conda-forge -c robotology icub-models blockfactory gazebo gazebo-yarp-plugins opencv
+```
+
+in your `~/.bashrc` add the following lines:
+
+```bash
+export YARP_ROBOT_NAME=iRonCub-Mk1_1_v1
+export IRONCUB_SOFTWARE_SOURCE_DIR=<path-to-ironcub-software>
+export YARP_DATA_DIRS=${YARP_DATA_DIRS}:${IRONCUB_SOFTWARE_SOURCE_DIR}/models/iRonCub-Mk1_1/iRonCub/
+export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:${IRONCUB_SOFTWARE_SOURCE_DIR}/models/
+export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:${IRONCUB_SOFTWARE_SOURCE_DIR}/models/iRonCub-Mk1_1/iRonCub/robots
+```
+
+Note that, to replicate the results, you need to install the hsl solvers (here we use `ma97`) that can be downloaded but not redistributed. Please check [here](https://www.hsl.rl.ac.uk/ipopt/). If you want to speed up the simulation you may install `IPOPT 3.13.4` with `CoinBrew` +  `HSL solver` as explained [here](https://gist.github.com/GiulioRomualdi/22fddb949e7b09bb53ca2ff72cbf8cb6).
+
+Then, in this folder, run:
+
+```bash
+pip install .
+```
 
 The skeleton of the varius cases is in the [runs folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/runs).
 

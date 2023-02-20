@@ -1,17 +1,13 @@
 from curses.ascii import SO
 from time import time
 
-from matplotlib.image import imread
-
 import casadi as cs
-import casadi.tools as cst
-import matplotlib.pyplot as plt
 import numpy as np
 from icecream import ic
 from liecasadi import SE3, SO3, SO3Tangent
+from matplotlib.image import imread
 
-from planner import Contact, CustomCallback, Robot, Visualizer
-from planner.integrator import generic_integrator, robot_integrator
+from multi_loco_planner import Robot, Visualizer
 
 
 class Problem:
@@ -30,7 +26,6 @@ class Problem:
         terminal_constraints=None,
         horizon=None,
     ):
-
         opti = cs.Opti()
 
         # horizon
@@ -268,10 +263,14 @@ class Problem:
 
         try:
             sol = opti.solve()
-
         except:
-            print("Not solved :(.")
+            print(
+                "Not solved, maybe you don't have HSL solvers installed. Trying with default solver."
+            )
+            opti.solver("ipopt")
+            sol = opti.solve()
             # opti.debug.show_infeasibilities()
+
         # print("CoM Position")
         # print(sol.value(R))
         print("Contact forces")
@@ -306,7 +305,7 @@ class Problem:
         picture_dir = f"pictures/{month}-{day}-{hour}-{minute}"
         os.mkdir(picture_dir)
 
-        input("Ashpett")
+        input("Press to continue...")
         for k in range(self.N + 1):
             pos = sol.value(P)[:, k]
             quat = sol.value(Q)[:, k]
@@ -520,7 +519,6 @@ class Problem:
                 "fast_step_computation": "yes",
                 "hessian_approximation": "limited-memory",
             }
-
             opti.solver("ipopt", optiSettings, solvSettings)
 
     def print_stats(self, opti=None, X=None, V=None, F=None, T=None, U=None, Time=None):
@@ -552,12 +550,11 @@ class Problem:
 
 
 if __name__ == "__main__":
-
     import pathlib
 
     import toml
 
-    config_path = "src/planner/robot/ironcub_optimized_initial_position.toml"
+    config_path = "config/ironcub_optimized_initial_position.toml"
     config = toml.load(config_path)
     initial_condition = cs.vertcat(
         config["optimized"]["position"],
@@ -568,64 +565,4 @@ if __name__ == "__main__":
     robot = Robot()
     problem = Problem(robot, 200)
 
-    def desired_com_pos_cost(x, v, f, t):
-        return cs.sumsqr(robot.get_com_position(x) - [0, 0, 2]) * 1e1
-
-    def increase_thrust_cost(x, v, f, t):
-        return -cs.sumsqr(t) * 1e0 * 0
-
-    def decrease_contact_cost(x, v, f, t):
-        return cs.sumsqr(f) * 1e0 * 0
-
-    def minimize_variation_cost(x, v, f, t):
-        return cs.sumsqr(v) * 2e2
-
-    def postural_cost(x, v, f, t):
-        return cs.sumsqr(x - initial_condition) * 1e1
-
-    def thrust_constraint(x, v, f, t):
-        return cs.vertcat(0, 0, 0, 0), t, cs.vertcat(160, 160, 220, 220)
-
-    def detach_feet_constraint(x, v, f, t):
-        g = []
-        lb = []
-        ub = []
-        # set contact z > zero
-        for frame, contact in robot.contacts_dict.items():
-            g = cs.vertcat(g, contact.origin(x)[2])
-            lb = cs.vertcat(lb, 0.03)
-            ub = cs.vertcat(ub, cs.np.inf)
-        #  set contact forces to zero
-        g = cs.vertcat(g, f)
-        lb = cs.vertcat(lb, 0 * cs.DM.ones(f.shape[0]))
-        ub = cs.vertcat(ub, 0 * cs.DM.ones(f.shape[0]))
-        return lb, g, ub
-
-    path_costs = [
-        increase_thrust_cost,
-        decrease_contact_cost,
-        minimize_variation_cost,
-        postural_cost,
-    ]
-
-    path_constraints = [thrust_constraint]
-
-    terminal_costs = [
-        desired_com_pos_cost,
-        increase_thrust_cost,
-        decrease_contact_cost,
-    ]
-
-    terminal_constraints = [detach_feet_constraint]
-
-    problem.create(
-        initial_condition=initial_condition,
-        path_costs=path_costs,
-        path_constraints=path_constraints,
-        terminal_costs=terminal_costs,
-        terminal_constraints=terminal_constraints,
-    )
-
-    # problem.solve()
-
-    # problem.show_result()
+    problem.create(initial_condition=initial_condition)

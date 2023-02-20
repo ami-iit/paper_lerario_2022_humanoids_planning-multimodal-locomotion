@@ -1,17 +1,13 @@
-from curses.ascii import SO
 from time import time
 
 from matplotlib.image import imread
 
 import casadi as cs
-import casadi.tools as cst
-import matplotlib.pyplot as plt
 import numpy as np
 from icecream import ic
 from liecasadi import SE3, SO3, SO3Tangent
 
-from planner import Contact, CustomCallback, Robot, Visualizer
-from planner.integrator import generic_integrator, robot_integrator
+from multi_loco_planner import Robot, Visualizer
 
 
 def slerp(p0, p1, t):
@@ -40,7 +36,6 @@ class Problem:
         terminal_constraints=None,
         horizon=None,
     ):
-
         opti = cs.Opti()
 
         # horizon
@@ -227,11 +222,14 @@ class Problem:
 
         self.set_solver(opti)
 
-        # try:
-        sol = opti.solve()
-
-        # except:
-        #     print("Not solved :(.")
+        try:
+            sol = opti.solve()
+        except:
+            print(
+                "Not solved, maybe you don't have HSL solvers installed. Trying with default solver."
+            )
+            opti.solver("ipopt")
+            sol = opti.solve()
         # opti.debug.show_infeasibilities()
         # print("CoM Position")
         # print(sol.value(R))
@@ -262,7 +260,7 @@ class Problem:
         picture_dir = f"pictures/{month}-{day}-{hour}-{minute}"
         os.mkdir(picture_dir)
 
-        input("Ashpett")
+        input("Press to continue...")
         for k in range(self.N + 1):
             pos = sol.value(P)[:, k]
             quat = sol.value(Q)[:, k]
@@ -468,9 +466,7 @@ class Problem:
                 "fast_step_computation": "yes",
                 "hessian_approximation": "limited-memory",
             }
-
             opti.solver("ipopt", optiSettings, solvSettings)
-            # opti.solver("blocksqp")
 
     def print_stats(self, opti=None, X=None, V=None, F=None, T=None, U=None, Time=None):
         ic(self.model.get_com_position(opti.debug.value(X))[:, -1])
@@ -501,12 +497,11 @@ class Problem:
 
 
 if __name__ == "__main__":
-
     import pathlib
 
     import toml
 
-    config_path = "src/planner/robot/ironcub_optimized_initial_position.toml"
+    config_path = "config/ironcub_optimized_initial_position.toml"
     config = toml.load(config_path)
     initial_condition = cs.vertcat(
         config["optimized"]["position"],
@@ -518,7 +513,3 @@ if __name__ == "__main__":
     problem = Problem(robot, 60)
 
     problem.create(initial_condition=initial_condition)
-
-    # problem.solve()
-
-    # problem.show_result()
