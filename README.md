@@ -156,3 +156,27 @@ pip install .
 To run the playback of the data, run the scripts in the [datasets folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/datasets). It will show the visualizations of the trajectories and plots.
 
 To run the optimizations, run the scripts in the [runs folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/runs).
+
+## Citing this work
+
+If you find the work useful, please consider citing:
+
+```bibtex
+@INPROCEEDINGS{10000241,
+  author={L'Erario, Giuseppe and Nava, Gabriele and Romualdi, Giulio and Bergonti, Fabio and Razza, Valentino and Dafarra, Stefano and Pucci, Daniele},
+  booktitle={2022 IEEE-RAS 21st International Conference on Humanoid Robots (Humanoids)},
+  title={Whole-Body Trajectory Optimization for Robot Multimodal Locomotion},
+  year={2022},
+  volume={},
+  number={},
+  pages={651-658},
+  doi={10.1109/Humanoids53995.2022.10000241}}
+```
+
+## Maintainer
+
+This repository is maintained by:
+
+|                                                              |                                                      |
+| :----------------------------------------------------------: | :--------------------------------------------------: |
+| [<img src="https://github.com/Giulero.png" width="40">](https://github.com/Giulero) | [@Giulero](https://github.com/Giulero) |
