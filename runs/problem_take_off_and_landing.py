@@ -1,4 +1,3 @@
-from curses.ascii import SO
 from time import time
 
 import casadi as cs
