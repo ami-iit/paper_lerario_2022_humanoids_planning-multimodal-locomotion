@@ -152,7 +152,7 @@ pip install .
 To run the playback of the data, run the scripts in the [datasets folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/datasets) from the root. It will show the visualizations of the trajectories and plots, e.g.:
 
 ```bash
-python datasets/plot_transition.py
+python datasets/plot_data_transition.py
 ```
 
 |⚠️ Warning |
