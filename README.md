@@ -149,7 +149,7 @@ mamba env create -f environment.yml
 pip install .
 ```
 
-Run from the root
+Run from the root directory of the repository
 
 ```bash
 show_trajectory --help
