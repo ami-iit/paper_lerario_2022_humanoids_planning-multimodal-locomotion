@@ -161,6 +161,9 @@ It will show the commands needed to visualize the trajectories and plots, e.g.:
 show_trajectory transition
 ```
 
+![code](https://user-images.githubusercontent.com/29798643/220925007-999c925c-036e-45f3-8879-8c00508a5657.png)
+
+
 It will show the visualizations of the trajectories and plots, e.g.:
 
 |⚠️ Warning |
