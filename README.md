@@ -149,11 +149,19 @@ mamba env create -f environment.yml
 pip install .
 ```
 
-To run the playback of the data, run the scripts in the [datasets folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/datasets) from the root. It will show the visualizations of the trajectories and plots, e.g.:
+Run from the root
 
 ```bash
-python datasets/plot_data_transition.py
+show_trajectory --help
 ```
+
+It will show the commands needed to visualize the trajectories and plots, e.g.:
+
+```bash
+show_trajectory transition
+```
+
+It will show the visualizations of the trajectories and plots, e.g.:
 
 |⚠️ Warning |
 |--|
