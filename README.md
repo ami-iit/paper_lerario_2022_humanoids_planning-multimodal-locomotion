@@ -118,22 +118,13 @@ EXIT: Solved To Acceptable Level.
 
 ## Code
 
-Git clone the iRonCub software repository:
+Git clone the [iRonCub software](https://github.com/ami-iit/ironcub_software.git) repository:
 
 ```bash
-git clone git@github.com:ami-iit/ironcub_software.git
+git clone https://github.com/ami-iit/ironcub_software.git --branch v1.0
 ```
 
-Create and enviroment and install the dependencies:
-
-```bash
-mamba create -n <conda-environment-name>
-mamba activate  <conda-environment-name>
-mamba install -c conda-forge compilers cmake pkg-config make ninja
-mamba install -c conda-forge -c robotology icub-models blockfactory gazebo gazebo-yarp-plugins opencv
-```
-
-in your `~/.bashrc` add the following lines:
+in your `~/.bashrc` add the following lines, in order to load the robot model and the meshes:
 
 ```bash
 export YARP_ROBOT_NAME=iRonCub-Mk1_1_v1
@@ -143,19 +134,47 @@ export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:${IRONCUB_SOFTWARE_SOURCE_DIR}/mod
 export GAZEBO_MODEL_PATH=${GAZEBO_MODEL_PATH}:${IRONCUB_SOFTWARE_SOURCE_DIR}/models/iRonCub-Mk1_1/iRonCub/robots
 ```
 
-⚠️ Note that, to replicate the results, you need to install the hsl solvers (here we use `ma97`) that can be downloaded but not redistributed. Please check [here](https://www.hsl.rl.ac.uk/ipopt/). If you want to speed up the simulation you may install `IPOPT 3.13.4` with `CoinBrew` +  `HSL solver` as explained [here](https://gist.github.com/GiulioRomualdi/22fddb949e7b09bb53ca2ff72cbf8cb6)!
-
-Clone this repository and install the package:
+Clone this repository:
 
 ```bash
 git clone git@github.com:ami-iit/paper_lerario_2022_humanoids_planning-multimodal-locomotion.git
+```
+
+Create and enviroment, install the dependencies and the package:
+
+```bash
 cd paper_lerario_2022_humanoids_planning-multimodal-locomotion
+conda config --add channels conda-forge # if you don't have the conda-forge channel already
+mamba env create -f environment.yml
 pip install .
 ```
 
-To run the playback of the data, run the scripts in the [datasets folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/datasets). It will show the visualizations of the trajectories and plots.
+Run from the root directory of the repository
 
-To run the optimizations, run the scripts in the [runs folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/runs).
+```bash
+show_trajectory --help
+```
+
+It will show the commands needed to visualize the trajectories and plots, e.g.:
+
+```bash
+show_trajectory transition
+```
+
+![code](https://user-images.githubusercontent.com/29798643/220925007-999c925c-036e-45f3-8879-8c00508a5657.png)
+
+
+It will show the visualizations of the trajectories and plots, e.g.:
+
+|⚠️ Warning |
+|--|
+|Note that, to replicate the results, you need to install the hsl solvers (here we use `ma97`) that can be downloaded but not redistributed. Please check [here](https://www.hsl.rl.ac.uk/ipopt/). If you want to speed up the simulation you may install `IPOPT 3.13.4` with `CoinBrew` +  `HSL solver` as explained [here](https://gist.github.com/GiulioRomualdi/22fddb949e7b09bb53ca2ff72cbf8cb6)!|
+
+To run the optimizations, run the scripts in the [runs folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/runs), from the root, e.g.:
+
+```bash
+python runs/problem_take_off.py
+```
 
 ## Citing this work
 

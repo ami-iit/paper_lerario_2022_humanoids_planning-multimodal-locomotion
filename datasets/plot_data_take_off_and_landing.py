@@ -12,7 +12,7 @@ if __name__ == "__main__":
         dataset = pickle.load(f)
 
     time = dataset["Time"]
-    print(time)
+    print(f"The trajectory lasts {time} seconds")
     N = dataset["knots"]
     time = np.linspace(0.0, time, N + 1)
 

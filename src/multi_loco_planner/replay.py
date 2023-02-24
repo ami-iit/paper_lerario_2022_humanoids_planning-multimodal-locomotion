@@ -1,9 +1,13 @@
-import typer
+import os
 import pickle
+import time
 from pathlib import Path
-from multi_loco_planner import Robot, Visualizer
+
 import numpy as np
+import typer
 from liecasadi import SE3
+
+from multi_loco_planner import Robot, Visualizer
 
 app = typer.Typer()
 
@@ -27,42 +31,34 @@ def update(viz, dataset):
         t = dataset["thrust"][:, k]
         f = dataset["contact-forces"][:, k]
         viz.update(H, s, t, f)
+        time.sleep(dataset["Time"] / dataset["knots"])
 
 
-docstring = f"caccacascacsascas"
-
-
-@app.command(
-    help="Type `replay_trajectory` landing to visualize the landing trajectory"
-)
+@app.command(help="Visualize the landing trajectory")
 def landing():
-    viz = load_viz()
-    with open(landing_str, "rb") as f:
-        dataset = pickle.load(f)
-    update(viz, dataset=dataset)
+    os.system("python datasets/plot_data_landing.py")
 
 
-@app.command(
-    help="Type `replay_trajectory transition` to visualize the walking to flying trajectory"
-)
+@app.command(help="Visualize the walking to flying trajectory")
 def transition():
-    viz = load_viz()
-    with open(transition_str, "rb") as f:
-        dataset = pickle.load(f)
-    update(viz, dataset=dataset)
+    os.system("python datasets/plot_data_transition.py")
+
+
+@app.command(help="Visualize the take off and landing trajectory")
+def take_off_and_landing():
+    os.system("python datasets/plot_data_take_off_and_landing.py")
 
 
 @app.command(
-    help="Type `replay_trajectory take-off` to visualize the take-off trajectory",
+    help="Visualize the take-off trajectory",
 )
 def take_off():
-    viz = load_viz()
-    with open(take_off_str, "rb") as f:
-        dataset = pickle.load(f)
-    update(viz, dataset=dataset)
+    os.system("python datasets/plot_data_take_off.py")
 
 
-@app.command(help="Type `replay_trajectory load dataset my-pickle-path` to visualize a trajectory stored in a pickle",)
+@app.command(
+    help="Type `show_trajectory load-dataset my-pickle-path` to visualize a trajectory stored in a pickle",
+)
 def load_dataset(data_path: str):
     viz = load_viz()
     with open(data_path, "rb") as f:

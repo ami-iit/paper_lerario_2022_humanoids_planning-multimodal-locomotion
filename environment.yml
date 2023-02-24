@@ -1,0 +1,13 @@
+name: ironcubplanning
+channels:
+  - conda-forge
+dependencies:
+  - casadi=3.5.5
+  - icub-models=1.26.0
+  - idyntree=8.1.0
+  - pip
+  - yarp=3.7.2
+  - pip:
+      - adam-robotics==0.0.6
+      - liecasadi==0.0.4
+      - icecream
