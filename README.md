@@ -12,7 +12,7 @@ Giuseppe L'Erario, Gabriele Nava, Giulio Romualdi, Fabio Bergonti, Valentino Raz
 
 <div align="center">
 
-[<img src="https://markdown-videos.deta.dev/youtube/eWprjrLKxkY" width="800">](https://youtu.be/eWprjrLKxkY)
+[<img src="https://user-images.githubusercontent.com/29798643/223752895-15b26a7b-272a-4310-8848-3a61d645c55e.png" width="800">](https://youtu.be/eWprjrLKxkY)
 
 </div>
 
