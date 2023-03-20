@@ -128,7 +128,10 @@ EXIT: Solved To Acceptable Level.
 
 ## Code
 
-Git clone the [iRonCub software](https://github.com/ami-iit/ironcub_software.git) repository:
+The iRonCub model and its meshes are stored in the [iRonCub software](https://github.com/ami-iit/ironcub_software.git) repository.
+
+You need to install [**`git LFS`**](https://git-lfs.com/) and enable it.
+Then, clone the [iRonCub software](https://github.com/ami-iit/ironcub_software.git) repository:
 
 ```bash
 git clone https://github.com/ami-iit/ironcub_software.git --branch v1.0
