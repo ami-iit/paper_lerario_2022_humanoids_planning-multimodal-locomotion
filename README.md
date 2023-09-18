@@ -18,6 +18,12 @@ Giuseppe L'Erario, Gabriele Nava, Giulio Romualdi, Fabio Bergonti, Valentino Raz
 
 <p align="center">
 
+<div align="center">
+  <a href="#code"><b>Installation</b></a> |
+  <a href="https://ieeexplore.ieee.org/document/10000241"><b>Paper</b></a> |
+  <a href="https://www.youtube.com/watch?v=eWprjrLKxkY&t=7s"><b>Video</b></a>
+</div>
+
 <!-- just a backup of the old video -->
 <!-- <https://user-images.githubusercontent.com/29798643/168559242-ac97fa3e-31b6-468b-9f2a-42986b69e33c.mp4> -->
 
