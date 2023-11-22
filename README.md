@@ -128,7 +128,7 @@ To validate the approach for generating multimodal locomotion, the fourth scenar
 
 <!-- ![05-16-11-07](https://user-images.githubusercontent.com/29798643/168568591-9582e8ca-1399-44ac-8e1a-e31425b4af63.gif) -->
 
-https://github.com/ami-iit/paper_lerario_2022_humanoids_planning-multimodal-locomotion/assets/29798643/ba419a9a-587c-4c54-9e3d-dac0421767df
+https://github.com/ami-iit/paper_lerario_2022_humanoids_planning-multimodal-locomotion/assets/29798643/16d6b778-d0e6-49d4-9dd3-ec72122386d2
 
 #### Ipopt output
 
