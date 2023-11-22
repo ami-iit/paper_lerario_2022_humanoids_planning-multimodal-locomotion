@@ -62,7 +62,7 @@ EXIT: Solved To Acceptable Level.
 
 ### Take-off and landing
 
-We test our approach is a vertical take-off and landing that shall be generated as a single instance of the optimisation problem. For this reason, we need to increase the number of knots of the optimisation horizon to 200. The initial and final CoM position is set to 0.57 m while at the intermediate knot we request a CoM height higher than 0.7 m. The robot decreases the contact forces and increases the thrust. The trajectory of the CoM reaches the maximum height and smoothly comes back to the initial position.
+We test our approach as a vertical take-off and landing that shall be generated as a single instance of the optimisation problem. For this reason, we need to increase the number of knots of the optimisation horizon to 200. The initial and final CoM position is set to 0.57 m while at the intermediate knot, we request a CoM height higher than 0.7 m. The robot decreases the contact forces and increases the thrust. The trajectory of the CoM reaches the maximum height and smoothly comes back to the initial position.
 
 #### Weights
 
@@ -159,7 +159,7 @@ Clone this repository:
 git clone git@github.com:ami-iit/paper_lerario_2022_humanoids_planning-multimodal-locomotion.git
 ```
 
-Create and enviroment, install the dependencies and the package:
+Create an environment, and install the dependencies and the package:
 
 ```bash
 cd paper_lerario_2022_humanoids_planning-multimodal-locomotion
@@ -187,7 +187,7 @@ It will show the visualizations of the trajectories and plots, e.g.:
 
 |⚠️ Warning |
 |--|
-|Note that, to replicate the results, you need to install the hsl solvers (here we use `ma97`) that can be downloaded but not redistributed. Please check [here](https://www.hsl.rl.ac.uk/ipopt/). If you want to speed up the simulation you may install `IPOPT 3.13.4` with `CoinBrew` +  `HSL solver` as explained [here](https://gist.github.com/GiulioRomualdi/22fddb949e7b09bb53ca2ff72cbf8cb6)!|
+|Note that to replicate the results, you need to install the hsl solvers (here we use `ma97`) that can be downloaded but not redistributed. Please check [here](https://www.hsl.rl.ac.uk/ipopt/). If you want to speed up the simulation you may install `IPOPT 3.13.4` with `CoinBrew` +  `HSL solver` as explained [here](https://gist.github.com/GiulioRomualdi/22fddb949e7b09bb53ca2ff72cbf8cb6)!|
 
 To run the optimizations, run the scripts in the [runs folder](https://github.com/ami-iit/paper_lerario_2022_ral_planning-multimodal-locomotion/tree/main/runs), from the root, e.g.:
 
