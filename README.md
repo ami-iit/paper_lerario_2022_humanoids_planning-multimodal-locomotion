@@ -46,7 +46,9 @@ The net-force transitions smoothly from contact forces to jet thrusts. The horiz
 | --------- | ---------- | --------- | ------------------ | ------------ | --------- | ------------- | --------- | --- | --------- | --- | ---- |
 | Weight    | 1e5        | 1e7       | 1e4                | 1e4          | 1e5       | 1e6           | 1e0       | 5e1 | 0         | 0   | 1e-1 |
 
-![03-15-09-54](https://user-images.githubusercontent.com/29798643/168566165-86c89196-38df-4dc1-852c-5a66bbc32901.gif)
+<!-- ![03-15-09-54](https://user-images.githubusercontent.com/29798643/168566165-86c89196-38df-4dc1-852c-5a66bbc32901.gif) -->
+
+https://github.com/ami-iit/paper_lerario_2022_humanoids_planning-multimodal-locomotion/assets/29798643/5e4a8d6d-f81c-44de-9a21-9201f0db233c
 
 #### Ipop output
 
