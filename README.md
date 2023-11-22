@@ -70,7 +70,11 @@ We test our approach as a vertical take-off and landing that shall be generated 
 | --------- | ---------- | --------- | ------------------ | ------------ | --------- | ------------- | --------- | --- | --------- | --- | ---- |
 | Weight    | 1e5        | 1e7       | 1e4                | 1e4          | 1e5       | 1e6           | 1e0       | 5e1 | 0         | 0   | 1e-1 |
 
-![05-16-12-25](https://user-images.githubusercontent.com/29798643/168592535-43ec03f3-d1bc-4e21-8198-a42d5a6fcb56.gif)
+<!-- ![05-16-12-25](https://user-images.githubusercontent.com/29798643/168592535-43ec03f3-d1bc-4e21-8198-a42d5a6fcb56.gif) -->
+
+https://github.com/ami-iit/paper_lerario_2022_humanoids_planning-multimodal-locomotion/assets/29798643/d0d620b2-0143-4215-b7d8-0b8bfb54bb32
+
+
 
 #### Ipopt output
 
