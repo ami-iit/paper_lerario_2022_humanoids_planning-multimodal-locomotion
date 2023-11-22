@@ -98,7 +98,9 @@ We test our approach in a context in which two different locomotion patterns are
 | --------- | ---------- | --------- | ------------------ | ------------ | --------- | ------------- | --------- | --- | --------- | --- | --- |
 | Weight    | 1e5        | 1e7       | 1e4                | 1e4          | 1e5       | 1e7           | 0         | 1e0 | 0         | 2e3 | 0   |
 
-![04-28-18-32](https://user-images.githubusercontent.com/29798643/168568487-d371eb08-1fd9-4af3-b44b-74f56b4658e3.gif)
+<!-- ![04-28-18-32](https://user-images.githubusercontent.com/29798643/168568487-d371eb08-1fd9-4af3-b44b-74f56b4658e3.gif) -->
+
+https://github.com/ami-iit/paper_lerario_2022_humanoids_planning-multimodal-locomotion/assets/29798643/ddd0c5bc-0d93-41ed-9852-bfe34f812648
 
 #### Ipopt output
 
